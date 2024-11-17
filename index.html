@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+
+<head>
+    <title>Music Website</title>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap JavaScript CDN (needed for dropdowns) -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet"> 
+</head>
+
+<body class="main">
+    <div class="sidebar p-3">
+        <!-- Title and Icon -->
+        <div class="d-flex flex-row justify-content-start title-icon-design">
+            <img class="icon" src="haps.png" alt="music">
+            <h1 class="title">music</h1>
+        </div>
+          <!-- Sidebar Navigation -->
+        <nav class="nav flex-column mt-4">
+            <a class="nav-link" href="#">
+                <i class="fas fa-home mr-2"></i> Home
+            </a>
+            <a class="nav-link" href="#">
+                <i class="fas fa-fire mr-2"></i> Trending
+            </a>
+            <a class="nav-link" href="#">
+                <i class="fas fa-user-circle mr-2"></i> Personalized
+            </a>
+            <a class="nav-link" href="#">
+                <i class="fas fa-music mr-2"></i> Artists
+            </a>
+            <a class="nav-link" href="#">
+                <i class="fas fa-podcast mr-2"></i> Podcast
+            </a>     
+        </nav>
+    </div>
+
+        <!-- Music Player Section -->
+    <div class="music-player">
+        <!-- Image of the currently playing song/album -->
+        <div class="current-song-image">
+            <img src="https://i.scdn.co/image/ab67616d00001e02ac29a65e7ffcfa6f9cb0d342" alt="Album Cover">
+        </div>
+
+        <!-- Audio Element -->
+        <audio id="audio-player" src="Interstellar-Theme.mp3"></audio> 
+
+        <!-- Music Control Buttons -->
+        <div class="music-controls">
+            <button class="control-btn shuffle-btn" id="shuffle-btn">
+                <i class="fas fa-random"></i>
+            </button>
+            <button class="control-btn previous-btn" id="previous-btn">
+                <i class="fas fa-step-backward"></i>
+            </button>
+            <button class="control-btn play-btn" id="play-btn">
+                <i class="fas fa-play"></i>
+            </button>
+            <button class="control-btn next-btn" id="next-btn">
+                <i class="fas fa-step-forward"></i>
+            </button>
+            <button class="control-btn repeat-btn" id="repeat-btn">
+                <i class="fas fa-redo"></i>
+            </button>
+        </div>
+
+        <!-- Audio track progress bar -->
+        <div id="progress-bar">
+            <input type="range" class="progress-slider" id="progress-slider" min="0" max="100" value="0">
+        </div>
+    </div>    
+
+    <!-- Top bar starts here -->
+
+    <div class="top-search-bar">
+        <nav class="navbar navbar-light">
+            <form class="form-inline mx-auto">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search..." aria-label="Search">
+                <button class="btn my-2" type="submit">
+                    <div class=" "> 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                        </svg>
+                    </div>
+                </button>
+            </form>
+            <div class="sign-style">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="30" fill="black" class="bi bi-person-fill" viewBox="0 0 16 16">
+                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+                </svg>
+                <button class="btn-sign-in" type="button">Sign in</button>
+            </div>
+            <li class="nav-item"> 
+                <a class="nav-link1 dropdown-toggle" href="#" id="settingsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-cog mr-2"></i>
+                </a>
+                <ul id="dropdown-menu" aria-labelledby="settingsDropdown">
+                    <li><a id="dropdown-item" href="#"><i class="fas fa-user mr-2"></i> Account</a></li>
+                    <li><a id="dropdown-item" href="#"><i class="fas fa-desktop mr-2"></i> Content and Display</a></li>
+                    <li><a id="dropdown-item" href="#"><i class="fas fa-play-circle mr-2"></i> Playback</a></li>
+                    <li><a id="dropdown-item" href="#"><i class="fas fa-bell mr-2"></i> Notification</a></li>
+                    <li><a id="dropdown-item" href="#"><i class="fas fa-video mr-2"></i> Media Quality</a></li>
+                    <li><a id="dropdown-item" href="#"><i class="fas fa-info-circle mr-2"></i> About</a></li>
+                </ul>
+            </li>        
+        </nav>
+    </div>
+
+    <!-- Main section starts here -->
+    <div class="main-section">
+        <div class="main-section-sub shadow">
+            <h2>Popular Artists</h2>
+            <h6> Show more <span class="arrow">→</span> </h6>
+            <div class="artist-container">
+                <div class="artist-item">
+                    <img src="A R Rahman.jpeg" alt="A R Rahman">
+                    <p>A R Rahman</p>
+                </div>
+                <div class="artist-item">
+                    <img src="Arjit Singh.jpeg" alt="Arjit Singh">
+                    <p>Arijit Singh</p>
+                </div>
+                <div class="artist-item">
+                    <img src="Shreya-Ghoshal.avif" alt="Shreya Ghoshal">
+                    <p>Shreya Ghoshal</p>
+                </div>
+                <div class="artist-item">
+                    <img src="Yesudas.jpeg" alt="Yesudas">
+                    <p>Yesudas</p>
+                </div>
+                <div class="artist-item">
+                    <img src="Ilayaraja.jpg" alt="Ilayaraja">
+                    <p>Ilayaraja</p>
+                </div>
+                <div class="artist-item">
+                    <img src="Sushin shyam.jpg" alt="Sushin shyam">
+                    <p>Sushin Shyam</p>
+                </div>
+            </div>
+        </div>
+        <div class="main-section-sub">
+            <div class="main-section2"></div>
+                <h2>Popular Albums</h2>
+                <h6> Show more <span class="arrow">→</span> </h6>
+                <div class="album-container">
+                    <div class="album-item">
+                        <img src="https://i.scdn.co/image/ab67616d00001e0263e570d1d905346c81614546" alt="">
+                        <h3>Kiliye-From "ARM"</h3>
+                        <p>Dhinu Ninan Thomas, K.S.Harisankar, Anila Rajeev</p>
+                    </div>
+                    <div class="album-item">
+                        <div class="album-item-inside">
+                            <img src="https://i.scdn.co/image/ab67616d00001e02ac29a65e7ffcfa6f9cb0d342" alt="">
+                            <h3>Interstellar</h3>
+                            <p>Hans Zimmer</p>
+                        </div>
+                    </div>
+                    <div class="album-item">
+                        <img src="https://i.scdn.co/image/ab67616d00001e027506d87e6489c5a93c042523" alt="">
+                        <h3>O Maahi (From"Dunki")</h3>
+                        <p>Arijit Singh</p>
+                    </div>
+                    <div class="album-item">
+                        <img src="https://i.scdn.co/image/ab67616d00001e02a682f3a0e5b24e8a296a6900" alt="">
+                        <h3>Singham</h3>
+                        <p>Shreya Ghoshal</p>
+                    </div>
+                    <div class="album-item">
+                        <img src="https://i.scdn.co/image/ab67616d00001e0208ec59b2157bff530072c42c" alt="">
+                        <h3>Vaazha</h3>
+                        <p>Rajat Prakash</p>
+                    </div>
+            </div>
+        </div>
+
+        <!-- Footer section starts here -->
+
+        <footer class="footer">
+            <div>
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Jobs</a></li>
+                    <li><a href="#">For the Record</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Communities</h3>
+                <ul>
+                    <li><a href="#">For Artists</a></li>
+                    <li><a href="#">Developers</a></li>
+                    <li><a href="#">Advertising</a></li>
+                    <li><a href="#">Investors</a></li>
+                    <li><a href="#">Vendors</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Useful links</h3>
+                <ul>
+                    <li><a href="#">Support</a></li>
+                    <li><a href="#">Free Mobile App</a></li>
+                </ul>
+            </div>
+        </footer>
+        <div class="footer-bottom">
+            <p>© 2024 Haps Music</p>
+            <div class="social-icons">
+                <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-instagram" viewBox="0 0 16 16">
+                    <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
+                  </svg></a>
+                <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-threads" viewBox="0 0 16 16">
+                    <path d="M6.321 6.016c-.27-.18-1.166-.802-1.166-.802.756-1.081 1.753-1.502 3.132-1.502.975 0 1.803.327 2.394.948s.928 1.509 1.005 2.644q.492.207.905.484c1.109.745 1.719 1.86 1.719 3.137 0 2.716-2.226 5.075-6.256 5.075C4.594 16 1 13.987 1 7.994 1 2.034 4.482 0 8.044 0 9.69 0 13.55.243 15 5.036l-1.36.353C12.516 1.974 10.163 1.43 8.006 1.43c-3.565 0-5.582 2.171-5.582 6.79 0 4.143 2.254 6.343 5.63 6.343 2.777 0 4.847-1.443 4.847-3.556 0-1.438-1.208-2.127-1.27-2.127-.236 1.234-.868 3.31-3.644 3.31-1.618 0-3.013-1.118-3.013-2.582 0-2.09 1.984-2.847 3.55-2.847.586 0 1.294.04 1.663.114 0-.637-.54-1.728-1.9-1.728-1.25 0-1.566.405-1.967.868ZM8.716 8.19c-2.04 0-2.304.87-2.304 1.416 0 .878 1.043 1.168 1.6 1.168 1.02 0 2.067-.282 2.232-2.423a6.2 6.2 0 0 0-1.528-.161"/>
+                  </svg></a>
+                <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-twitter-x" viewBox="0 0 16 16">
+                    <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
+                  </svg></a>
+            </div>
+        </div>
+    </div>
+
+        <!-- Right side bar starts here -->
+
+    <div class="schedule-img-design">
+        <img src="upcoming.png" alt="Upcoming Events" id="upcoming-image">
+    </div>
+
+    <div class="Right-sidebar" id="right-sidebar">
+        <div class="head-section" id="content-section">
+            
+            <h2>Bansuri</h2>
+            <hr class="horizontal-ruler">
+            <p>
+                For all the souls in GECT, music has always been something that glued us all.
+                One song is enough to give you goosebumps and make your heart sing under the rhythm
+                of that soft breeze that elapses through the gulmohar leaves. That's what Bansuri, 
+                your own music club, has pleased to do for years.
+            </p>
+        </div>
+        <div class="img-bansuri" id="bansuri-image">
+            <img src="Bansuri.jpg" alt="Bansuri">
+        </div>
+        <div class="design-btn-book-now">
+            <button style="color: black;" class="btn-book-now" type="button">Book Now</button>
+        </div>   
+    </div>
+
+    <!-- Premium bar starts here -->
+
+    <div class="premium-design shadow">
+        <h2>For unlimited songs, ad-free, offline downloads<br>1 month free, then $0.99/month</h2>
+        <button> Get Premium </button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
